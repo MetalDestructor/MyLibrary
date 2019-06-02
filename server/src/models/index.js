@@ -1,5 +1,7 @@
 import mongoose from 'mongoose';
 
+import Genre from './genre';
+import Author from './author';
 import User from './user';
 import Book from './book';
 
@@ -10,7 +12,7 @@ const connectDb = () => {
 	});
 };
 
-const models = { User, Book };
+const models = { User, Book, Author, Genre };
 
 export { connectDb };
 

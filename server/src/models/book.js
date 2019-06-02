@@ -5,7 +5,12 @@ const bookSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
+	description: {
+		type: String
+	},
+	authors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Author' }],
+	genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
+	readers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 const Book = mongoose.model('Book', bookSchema);

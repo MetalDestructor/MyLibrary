@@ -17,9 +17,9 @@ const userSchema = new mongoose.Schema({
 	}
 });
 
-userSchema.pre('remove', function(next) {
-	this.model('Book').deleteMany({ user: this._id }, next);
-});
+// userSchema.pre('remove', function(next) {
+// 	this.model('Book').deleteMany({ user: this._id }, next);
+// });
 
 const User = mongoose.model('User', userSchema);
 
