@@ -1,23 +1,41 @@
 import models from '../models';
 
 const getAllBooks = async () => {
-	const authorParams = await models.Author.find()
-		.select('_id')
-		.then(res => {
-			return res.map(r => r._id.toString());
-		});
+	const books = await models.Book.find();
+	return books;
+};
 
-	tagSearchQuery = { authors: { $in: authorParams } };
+const getBookById = async bookId => {
+	const book = await models.Book.findById(bookId);
+	return book;
+};
 
-	const authorParams = await models.Author.find()
-		.select('_id')
-		.then(res => {
-			return res.map(r => r._id.toString());
-		});
+const createBook = async data => {
+	const book = await models.Book.create({
+		title: data.title,
+		description: data.description,
+		genres: data.genres,
+		authors: data.authors,
+		readers: data.readers
+	});
 
-	tagSearchQuery = { authors: { $in: authorParams } };
+	return book;
+};
+
+const deleteBook = async id => {
+	const book = await models.Book.findById(id);
+
+	let result = null;
+	if (book) {
+		result = await book.remove();
+	}
+
+	return result;
 };
 
 export default {
-	getAllBooks
+	getAllBooks,
+	getBookById,
+	createBook,
+	deleteBook
 };
