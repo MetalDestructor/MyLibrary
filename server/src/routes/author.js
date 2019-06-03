@@ -1,40 +1,46 @@
 import { Router } from 'express';
+import services from '../services';
 
 const router = Router();
 
 router.get('/', async (req, res) => {
-	const authors = await req.context.models.Author.find();
-	return res.send(authors);
+	try {
+		const authors = await services.author.getAllAuthors();
+		return res.send(authors);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
 });
 
 router.get('/:authorId', async (req, res) => {
-	const author = await req.context.models.Author.findById(
-		req.params.authorId
-	);
-	return res.send(author);
+	try {
+		const author = await services.author.getAuthorById(req.params.authorId);
+		return res.send(author);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
 });
 
 router.post('/', async (req, res) => {
-	const author = await req.context.models.Author.create({
-		name: req.body.name,
-		description: req.body.description,
-		born: req.body.born
-	});
-
-	return res.send(author);
+	try {
+		const author = await services.author.createAuthor(req.body);
+		return res.send(author);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
 });
 
 router.delete('/:authorId', async (req, res) => {
-	const author = await req.context.models.Author.findById(
-		req.params.authorId
-	);
-
-	let result = null;
-	if (author) {
-		result = await author.remove();
+	try {
+		const author = await services.author.deleteAuthor(req.params.authorId);
+		return res.send(author);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
 	}
-
-	res.send(result);
 });
 
 export default router;
