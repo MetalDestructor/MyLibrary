@@ -1,15 +1,16 @@
 import { Router } from 'express';
+import services from '../services';
 
 const router = Router();
 
-router.get('/', async (req, res) => {
-	const users = await req.context.models.User.find();
-	return res.send(users);
-});
-
 router.get('/:userId', async (req, res) => {
-	const user = await req.context.models.User.findById(req.params.userId);
-	return res.send(user);
+	try {
+		const user = await services.user.getUserById(req.params.userId);
+		return res.send(user);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
 });
 
 export default router;

@@ -27,7 +27,7 @@ const deleteAuthor = async id => {
 		result = await author.remove();
 	}
 
-	res.send(result);
+	return result;
 };
 
 export default {

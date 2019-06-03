@@ -35,8 +35,8 @@ router.post('/', async (req, res) => {
 
 router.delete('/:authorId', async (req, res) => {
 	try {
-		const author = await services.author.deleteAuthor(req.params.authorId);
-		return res.send(author);
+		const result = await services.author.deleteAuthor(req.params.authorId);
+		return res.send(result);
 	} catch (e) {
 		console.log(e);
 		return res.status(500).send('Server Error');

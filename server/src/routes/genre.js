@@ -1,34 +1,46 @@
 import { Router } from 'express';
+import services from '../services';
 
 const router = Router();
 
 router.get('/', async (req, res) => {
-	const genres = await req.context.models.Genre.find();
-	return res.send(genres);
+	try {
+		const genres = await services.genre.getAllGenres();
+		return res.send(genres);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
 });
 
 router.get('/:genreId', async (req, res) => {
-	const genre = await req.context.models.Genre.findById(req.params.genreId);
-	return res.send(genre);
+	try {
+		const genre = await services.genre.getGenreById(req.params.genreId);
+		return res.send(genre);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
 });
 
 router.post('/', async (req, res) => {
-	const genre = await req.context.models.Genre.create({
-		label: req.body.label
-	});
-
-	return res.send(genre);
+	try {
+		const genre = await services.genre.createGenre(req.body);
+		return res.send(genre);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
 });
 
 router.delete('/:genreId', async (req, res) => {
-	const genre = await req.context.models.Genre.findById(req.params.genreId);
-
-	let result = null;
-	if (genre) {
-		result = await genre.remove();
+	try {
+		const result = await services.genre.deleteGenre(req.params.genreId);
+		res.send(result);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
 	}
-
-	res.send(result);
 });
 
 export default router;
