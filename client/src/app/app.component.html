@@ -1,4 +1,7 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div *ngFor="let genre of apiService.genres">
+  <mat-card>{{genre.label}}</mat-card>
+</div>
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
