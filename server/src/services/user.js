@@ -11,6 +11,18 @@ const createUser = async data => {
 	return user;
 }
 
+const loginUser = async data => {
+	const user = await models.User.findOne({username: data.username});
+
+	if(!user){
+		//no user found
+	}
+	if(user.password != data.password){
+		//user not authenticated
+	}
+	return user;
+};
+
 export default {
 	getUserById,
 	createUser

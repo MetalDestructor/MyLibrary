@@ -12,4 +12,16 @@ export class ApiService {
       this.genres = res;
     });
   }
+
+  registerNewUser(userData) {
+    this.http.post('http://localhost:3000/users', userData).subscribe(res => {
+      this.genres = res;
+    });
+  }
+
+  loginUser(userData) {
+    this.http.post('http://localhost:3000/users', userData).subscribe(res => {
+      this.genres = res;
+    });
+  }
 }
