@@ -11,11 +11,7 @@ const getAuthorById = async id => {
 };
 
 const createAuthor = async data => {
-	const author = await models.Author.create({
-		name: data.name,
-		description: data.description,
-		born: data.born
-	});
+	const author = await models.Author.create(data);
 	return author;
 };
 

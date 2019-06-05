@@ -11,9 +11,7 @@ const getGenreById = async id => {
 };
 
 const createGenre = async data => {
-	const genre = await models.Genre.create({
-		label: data.label
-	});
+	const genre = await models.Genre.create(data);
 	return genre;
 };
 

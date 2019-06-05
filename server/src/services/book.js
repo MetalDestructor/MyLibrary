@@ -11,13 +11,7 @@ const getBookById = async bookId => {
 };
 
 const createBook = async data => {
-	const book = await models.Book.create({
-		title: data.title,
-		description: data.description,
-		genres: data.genres,
-		authors: data.authors,
-		readers: data.readers
-	});
+	const book = await models.Book.create(data);
 
 	return book;
 };

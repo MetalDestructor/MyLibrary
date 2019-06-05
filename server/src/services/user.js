@@ -6,6 +6,12 @@ const getUserById = async id => {
 	return newUser;
 };
 
+const createUser = async data => {
+	const user = await models.User.create(data);
+	return user;
+}
+
 export default {
-	getUserById
+	getUserById,
+	createUser
 };

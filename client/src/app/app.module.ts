@@ -7,9 +7,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GenresComponent } from './genres/genres.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, GenresComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

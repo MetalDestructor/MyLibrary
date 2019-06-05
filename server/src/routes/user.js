@@ -13,4 +13,14 @@ router.get('/:userId', async (req, res) => {
 	}
 });
 
+router.post('/create', async (req, res) =>{
+	try {
+		const user = await services.user.createUser(req.body);
+		return res.send(user);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
+})
+
 export default router;
