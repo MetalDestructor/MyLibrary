@@ -24,6 +24,7 @@ app.use('/users', routes.user);
 app.use('/books', routes.book);
 app.use('/genres', routes.genre);
 app.use('/authors', routes.author);
+app.use(routes.auth);
 
 app.get('/authenticated', (req, res) => {
 	res.send(req.context.users[0]);

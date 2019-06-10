@@ -1,0 +1,31 @@
+<mat-card class="col-centered full-width">
+  <mat-card-header>
+    <mat-card-title>New Author</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="submit()" #f='ngForm' class="col-centered">
+      <div class="container">
+        <div class="row">
+          <mat-form-field class="input-width">
+            <input [(ngModel)]="authorData.name" name="name" matInput placeholder="Name">
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="input-width">
+              <input [(ngModel)]="authorData.born" name="born" matInput [matDatepicker]="picker" placeholder="Born">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            <!-- <input [(ngModel)]="authorData.born" name="born" matInput placeholder="born" type="date"> -->
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="input-width">
+            <textarea matInput [(ngModel)]="authorData.description" name="description"
+              placeholder="Description"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <button type="submit" mat-raised-button color="primary">Add</button>
+    </form>
+  </mat-card-content>
+</mat-card>
