@@ -26,6 +26,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthorComponent } from './author/author.component';
 import { TokenInterceptor } from './auth.interceptor';
 import { AuthService } from './auth.service';
+import { BooksComponent } from './books/books.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { AuthService } from './auth.service';
     LoginComponent,
     AuthorsComponent,
     ProfileComponent,
-    AuthorComponent
+    AuthorComponent,
+    BooksComponent
   ],
   imports: [
     BrowserModule,
