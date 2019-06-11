@@ -5,11 +5,15 @@ const bookSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	description: {
+	about: {
+		type: String, 
+		required: true
+	},
+	cover: {
 		type: String
 	},
-	authors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Author' }],
-	genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' }],
+	authors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Author', required: true }],
+	genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' , required: true}],
 	readers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 

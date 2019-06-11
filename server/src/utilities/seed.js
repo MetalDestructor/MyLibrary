@@ -29,41 +29,48 @@ const createUsersWithBooks = async () => {
 	const authors = [
 		new models.Author({
 			name: 'Tom Clancy',
-			description: 'Good one',
-			born: '1987-09-28'
+			description:
+				'Thomas Leo Clancy Jr. was an American novelist best known for his technically detailed espionage and military-science storylines set during and after the Cold War. Seventeen of his novels were bestsellers, and more than 100 million copies of his books are in print.[1] His name was also used on movie scripts written by ghostwriters, nonfiction books on military subjects, and video games. He was a part-owner of the Baltimore Orioles and vice-chairman of their community activities and public affairs committees.',
+			born: '1947-04-12'
 		}),
 		new models.Author({
 			name: 'Gary Paulsen',
-			description: 'Not that bad',
-			born: '1913-12-02'
+			description:
+				'Gary James Paulsen is an American writer of young adult literature, best known for coming of age stories about the wilderness. He is the author of more than 200 books and has written more than 200 magazine articles and short stories, and several plays, all primarily for teenagers. He won the Margaret Edwards Award from the American Library Association in 1997 for his lifetime contribution in writing for teens.',
+			born: '1939-05-17'
 		}),
 		new models.Author({
 			name: 'Louis Sachar',
-			description: 'Please stop',
-			born: '2019-02-12'
+			description: 'Louis Sachar is an American young-adult mystery-comedy author. He is best known for the Wayside School series and the award-winner, Holes. Holes won the 1998 U.S. National Book Award for Young Peoples Literature and the 1999 Newbery Medal for the years most distinguished contribution to American literature for children".[3] In 2013, it was ranked sixth among all childrens novels in a survey published by School Library Journal.',
+			born: '1954-03-20'
 		})
 	];
 
 	const books = [
 		new models.Book({
 			title: 'Red rabbit',
-			description: 'Good book',
+			cover: 'https://covers.openlibrary.org/w/id/6917429-M.jpg',
+			about: `Jack Ryans first days with the CIA may be the Popes last days alive.Long before he was President or head of the CIA, before he fought terrorist attacks on the Super Bowl or the White House, even before a submarine named Red October made its perilous way across the Atlantic, Jack Ryan was an historian, teacher, and recent ex-Marine temporarily living in England while researching a book. A series of deadly encounters with an IRA splinter group had brought him to the attention of the CIA's Deputy Director, Vice Admiral James Greer—as well as his counterpart with the British SIS, Sir Basil Charleston—and when Greer asked him if he wanted to come aboard as a freelance analyst, Jack was quick to accept. The opportunity was irresistible, and he was sure he could fit it in with the rest of his work.
+					And then Jack forgot all about the rest of his work, because one of his first assignments was to help debrief a high-level Soviet defector, and the defector told an amazing tale: Top Soviet officials, including Yuri Andropov, were planning to assassinate the Pope, John Paul II. Could it be true? As the days and weeks go by, Ryan must battle, first to try to confirm the plot, and then to prevent it, but this is a brave new world, and nothing he has done up to now has prepared him for the lethal game of cat-and-mouse that is the Soviet Union versus the United States. In the end, it will be not just the Pope's life but the stability of the Western world that is at stake. . . and it may already be too late for a novice CIA analyst to do anything about it.
+					"Clancy creates not only compelling characters but frighteningly topical situations and heart-stopping action," wrote The Washington Post about The Bear and the Dragon. "Among the handful of superstars, Clancy still reigns, and he is not likely to be dethroned any time soon." These words were never truer than about the remarkable pages of his breathtaking new novel. This is Clancy at his best—and there is none better.`,
 			authors: [authors[0].id],
 			readers: [users[0].id],
 			genres: [genres[0].id]
 		}),
 		new models.Book({
 			title: 'Hatchet',
-			description: 'I guess its okay',
+			cover: 'https://covers.openlibrary.org/w/id/8231801-L.jpg',
+			about: 'The only survivor of a plane crash, Brian spends 54 days in the wilderness, learning to cope with only a hatchet given him by his mother and also learning to survive his parents divorce.',
 			authors: [authors[1].id],
 			readers: [users[1].id],
 			genres: [genres[1].id]
 		}),
 		new models.Book({
 			title: 'holes',
-			description: 'Dont get me started',
+			cover: 'https://covers.openlibrary.org/w/id/8231835-M.jpg',
+			about: 'Stanley Yelnats is under a curse. A curse that began with his no-good-dirty-rotten-pig-stealing great-great-grandfather and has since followed generations of Yelnatses. Now Stanley has been unjustly sent to a boys detention center, Camp Green Lake, where the boys build character by spending all day, every day, digging holes exactly five feet wide and five feet deep. There is no lake at Camp Green Lake. But there are an awful lot of holes. It doesnt take long for Stanley to realize that Camp Green Lake isnt what it seems. Are the boys digging holes because the warden is looking for something? But what could be buried under a dried-up lake? Its up to Stanley to dig up the truth.',
 			authors: [authors[2].id],
-			readers: [users[1].id],
+			readers: [users[1].id, users[0].id],
 			genres: [genres[2].id]
 		})
 	];
