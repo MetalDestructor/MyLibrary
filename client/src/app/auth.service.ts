@@ -16,7 +16,8 @@ export class AuthService {
     this.http
       .post('http://localhost:3000/register', userData)
       .subscribe(res => {
-        console.log('YES');
+        console.log(res);
+        localStorage.setItem(this.TOKEN_KEY, res[this.TOKEN_KEY]);
       });
   }
 
