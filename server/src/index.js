@@ -5,6 +5,7 @@ import express from 'express';
 import models, { connectDb } from './models';
 import routes from './routes';
 import seeder from './utilities/seed.js';
+import jwt from 'jwt-simple';
 
 const app = express();
 
@@ -18,6 +19,18 @@ app.use(async (req, res, next) => {
 		models
 	};
 	next();
+});
+
+app.use(async (req, res, next) => {
+	if(!req.headers.authorization){
+		return next();
+	  }
+	
+	  const token = req.headers.authorization.split(' ')[1];
+	  const payload = jwt.decode(token, '123');
+	  req.userId = payload.sub;
+	
+	  next();
 });
 
 app.use('/users', routes.user);

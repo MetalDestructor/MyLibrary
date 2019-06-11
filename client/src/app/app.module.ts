@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import {
   MatButtonModule,
   MatCardModule,
@@ -8,7 +8,8 @@ import {
   MatInputModule,
   MatListModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatIconModule
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
@@ -23,6 +24,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthorsComponent } from './authors/authors.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthorComponent } from './author/author.component';
+import { TokenInterceptor } from './auth.interceptor';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -47,9 +50,14 @@ import { AuthorComponent } from './author/author.component';
     FormsModule,
     MatListModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule
   ],
-  providers: [ApiService],
+  providers: [
+    ApiService,
+    AuthService,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

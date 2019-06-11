@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
 	}
 	await bcrypt.compare(req.body.password, user.password, (err, isMatch) => {
 		if (isMatch) {
-			var payload = {};
+			var payload = {sub: user._id};
 
 			const token = jwt.encode(payload, '123');
 			return res.json({status:"success", token});
