@@ -9,7 +9,8 @@ import {
   MatListModule,
   MatDatepickerModule,
   MatNativeDateModule,
-  MatIconModule
+  MatIconModule,
+  MatGridListModule
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
@@ -53,7 +54,8 @@ import { BooksComponent } from './books/books.component';
     MatListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatIconModule
+    MatIconModule,
+    MatGridListModule
   ],
   providers: [
     ApiService,

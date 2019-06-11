@@ -1,3 +1,11 @@
-<p>
-  books works!
-</p>
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let book of apiService.books">
+    <mat-card [routerLink]="['/book', book._id]">
+      <mat-card-header>
+        <mat-card-title>{{book.title}}</mat-card-title>
+        <mat-card-subtitle *ngFor="let author of book.authors">{{author.name}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src={{book.cover}}>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

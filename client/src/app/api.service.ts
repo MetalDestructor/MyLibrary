@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 export class ApiService {
   public genres: any = [];
   public authors: any = [];
+  public books: any = [];
   path: string;
 
   constructor(private http: HttpClient) {
@@ -18,19 +19,26 @@ export class ApiService {
     });
   }
 
+  getBooks() {
+    this.http.get(this.path + '/books').subscribe(res => {
+      console.log(res);
+      this.books = res;
+    });
+  }
+
   getAuthors() {
     this.http.get(this.path + '/authors').subscribe(res => {
       this.authors = res;
     });
   }
 
-  postAuthor(author) {
+  postAuthor(author:any) {
     this.http.post(this.path + '/authors', author).subscribe(res => {
       console.log(res);
     });
   }
 
-  getProfile(id) {
+  getProfile(id: string) {
     return this.http.get(this.path + '/authors/' + id);
   }
 }

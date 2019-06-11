@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
     <span routerLink="/">MyLibrary</span>
+    <button mat-button [routerLink]="['/books']"><mat-icon>library_books</mat-icon> &nbsp; Books</button>
     <button mat-button [routerLink]="['/authors']">Authors</button>
     <span style="flex: 1 1 auto"></span>
     <ng-template [ngIf]="isAuthenticated()">
