@@ -1,35 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import * as jwt_decode from 'jwt-decode';
+import { environment } from './../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   token: string;
-
-  TOKEN_KEY = 'token';
-  constructor(private http: HttpClient) {
-    this.token = localStorage.getItem(this.TOKEN_KEY);
+  token_key: string;
+  path: string;
+  constructor(private http: HttpClient, private router: Router) {
+    this.token = localStorage.getItem(environment.token_key);
+    this.path = environment.path;
+    this.token_key = environment.token_key;
   }
 
   registerUser(userData) {
-    this.http
-      .post('http://localhost:3000/register', userData)
-      .subscribe(res => {
-        console.log(res);
-        localStorage.setItem(this.TOKEN_KEY, res[this.TOKEN_KEY]);
-      });
+    this.http.post(this.path + '/register', userData).subscribe(res => {
+      localStorage.setItem(this.token_key, res[this.token_key]);
+      this.router.navigate(['/']);
+    });
   }
 
   loginUser(userData) {
-    this.http.post('http://localhost:3000/login', userData).subscribe(res => {
-      console.log(res);
-      localStorage.setItem(this.TOKEN_KEY, res[this.TOKEN_KEY]);
+    this.http.post(this.path + '/login', userData).subscribe(res => {
+      localStorage.setItem(this.token_key, res[this.token_key]);
+      this.router.navigate(['/']);
     });
   }
 
   getToken(): string {
-    const token = localStorage.getItem(this.TOKEN_KEY);
+    const token = localStorage.getItem(this.token_key);
     return token;
   }
 
@@ -40,6 +43,12 @@ export class AuthService {
       return true;
     }
   }
+
+  getUserInfo() {
+    const webToken = jwt_decode(this.token);
+    return webToken;
+  }
+
   logout() {
     if (confirm('Are you sure you want to logout ?')) {
       this.removeToken();
@@ -47,7 +56,7 @@ export class AuthService {
   }
 
   private removeToken() {
-    localStorage.removeItem(this.TOKEN_KEY);
+    localStorage.removeItem(this.token_key);
     this.token = null;
   }
 }

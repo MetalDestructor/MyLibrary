@@ -6,13 +6,17 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from './../environments/environment';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor() {}
+    token_key: string;
+  constructor() {
+      this.token_key = environment.token_key;
+  }
 
   private getToken(): string {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem(this.token_key);
     return token;
   }
 

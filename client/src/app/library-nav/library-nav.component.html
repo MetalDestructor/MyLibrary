@@ -1,11 +1,11 @@
-<mat-toolbar>
+<mat-toolbar color="primary">
     <span routerLink="/">MyLibrary</span>
     <button mat-button [routerLink]="['/authors']">Authors</button>
     <span style="flex: 1 1 auto"></span>
     <ng-template [ngIf]="isAuthenticated()">
         <button mat-button
                 color="accent">
-            <mat-icon>account_box</mat-icon> &nbsp; Pesho
+            <mat-icon>account_box</mat-icon> &nbsp; {{getUsername()}}
         </button>
 
         <button mat-button

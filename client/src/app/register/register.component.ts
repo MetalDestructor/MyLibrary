@@ -7,15 +7,12 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./register.component.less']
 })
 export class RegisterComponent implements OnInit {
+  registerData = {};
+  constructor(private authService: AuthService) {}
 
-  registerData = {}
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   submit() {
-    this.authService.registerUser(this.registerData);
+	this.authService.registerUser(this.registerData);
   }
-
 }
