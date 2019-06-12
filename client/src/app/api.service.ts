@@ -21,7 +21,6 @@ export class ApiService {
 
   getBooks() {
     this.http.get(this.path + '/books').subscribe(res => {
-      console.log(res);
       this.books = res;
     });
   }
@@ -48,5 +47,9 @@ export class ApiService {
 
   getAuthor(id: string) {
     return this.http.get(this.path + '/authors/' + id);
+  }
+
+  getUser(id: string) {
+    return this.http.get(this.path + '/users/' + id);
   }
 }

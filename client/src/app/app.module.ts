@@ -29,6 +29,7 @@ import { TokenInterceptor } from './auth.interceptor';
 import { AuthService } from './auth.service';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './book/book.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { BookComponent } from './book/book.component';
     AuthorComponent,
     AuthorNewComponent,
     BooksComponent,
-    BookComponent
+    BookComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,

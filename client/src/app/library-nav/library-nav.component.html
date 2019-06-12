@@ -5,8 +5,9 @@
     <span style="flex: 1 1 auto"></span>
     <ng-template [ngIf]="isAuthenticated()">
         <button mat-button
-                color="accent">
-            <mat-icon>account_box</mat-icon> &nbsp; {{getUsername()}}
+                color="accent"
+                [routerLink]="['/user', currentUser?._id]">
+            <mat-icon>account_box</mat-icon> &nbsp; Hello, {{getUsername()}}
         </button>
 
         <button mat-button

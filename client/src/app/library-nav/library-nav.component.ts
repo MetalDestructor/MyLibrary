@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../auth.service';
+import { AuthService } from '../auth.service';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-library-nav',
@@ -7,10 +8,16 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./library-nav.component.less']
 })
 export class LibraryNavComponent implements OnInit {
+  currentUser: any;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private apiService: ApiService
+  ) {}
 
   ngOnInit() {
+    const id = this.authService.getUserInfo()['sub'];
+    this.apiService.getUser(id).subscribe(data => (this.currentUser = data));
   }
 
   isAuthenticated(): boolean {
@@ -18,7 +25,6 @@ export class LibraryNavComponent implements OnInit {
   }
 
   getUsername(): string {
-    return this.authService.getUserInfo()['sub'];
+    return this.currentUser.username;
   }
-
 }

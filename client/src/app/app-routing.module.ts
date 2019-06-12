@@ -7,6 +7,7 @@ import { AuthorComponent } from './author/author.component';
 import { AuthorNewComponent } from './author-new/author-new.component';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './book/book.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: '', component: BooksComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'authors', component: AuthorsComponent },
-  { path: 'author/:id', component: AuthorComponent }
+  { path: 'author/:id', component: AuthorComponent },
+  { path: 'user/:id', component: UserComponent}
 ];
 
 @NgModule({
