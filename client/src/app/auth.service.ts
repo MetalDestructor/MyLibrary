@@ -28,7 +28,7 @@ export class AuthService {
   loginUser(userData) {
     this.http.post(this.path + '/login', userData).subscribe(res => {
       this.token = res[this.token_key];
-      localStorage.setItem(this.token_key, res[this.token]);
+      localStorage.setItem(this.token_key, res[this.token_key]);
       this.router.navigate(['/']);
     });
   }

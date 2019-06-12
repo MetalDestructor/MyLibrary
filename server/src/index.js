@@ -42,7 +42,7 @@ app.get('/authenticated', (req, res) => {
 	res.send(req.context.users[0]);
 });
 
-const eraseDatabaseOnSync = true;
+const eraseDatabaseOnSync = false;
 
 connectDb().then(async () => {
 	if (eraseDatabaseOnSync) {

@@ -23,8 +23,18 @@ router.get('/:bookId', async (req, res) => {
 	}
 });
 
+router.get('/author/:authorId', async (req, res) => {
+	try {
+		const books = await services.book.getBooksByAuthor(req.params.authorId);
+		return res.send(books);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
+});
+
 router.post('/', async (req, res) => {
-	//minamail creation requirements
+	//minimal creation requirements
 	try {
 		const book = await services.book.createBook(req.body);
 		return res.send(book);
