@@ -11,6 +11,11 @@ const createUsersWithBooks = async () => {
 			username: 'peter',
 			email: 'asd@bg.bg',
 			password: 'asd123'
+		}),
+		new models.User({
+			username: 'admin',
+			email: 'admin@admin.admin',
+			password: 'admin'
 		})
 	];
 
@@ -23,6 +28,21 @@ const createUsersWithBooks = async () => {
 		}),
 		new models.Genre({
 			label: 'Action'
+		}),
+		new models.Genre({
+			label: 'Fiction'
+		}),
+		new models.Genre({
+			label: 'Science Fiction'
+		}),
+		new models.Genre({
+			label: 'Young Adult'
+		}),
+		new models.Genre({
+			label: 'Adventure'
+		}),
+		new models.Genre({
+			label: 'Dystopian'
 		})
 	];
 
@@ -43,6 +63,21 @@ const createUsersWithBooks = async () => {
 			name: 'Louis Sachar',
 			description: 'Louis Sachar is an American young-adult mystery-comedy author. He is best known for the Wayside School series and the award-winner, Holes. Holes won the 1998 U.S. National Book Award for Young Peoples Literature and the 1999 Newbery Medal for the years most distinguished contribution to American literature for children".[3] In 2013, it was ranked sixth among all childrens novels in a survey published by School Library Journal.',
 			born: '1954-03-20'
+		}),
+		new models.Author({
+			name: 'Mary Shelley',
+			description: 'Mary Shelley was a British novelist, short story writer, dramatist, essayist, biographer, and travel writer, best known for her Gothic novel Frankenstein: or, The Modern Prometheus (1818). She also edited and promoted the works of her husband, the Romantic poet and philosopher Percy Bysshe Shelley. Her father was the political philosopher William Godwin, and her mother was the philosopher and feminist Mary Wollstonecraft.',
+			born: '1797-08-30'
+		}),
+		new models.Author({
+			name: 'Rick Yancey',
+			description: 'Richard Yancey is an American author who writes works of suspense, fantasy, and science fiction aimed at young adults.',
+			born: '1962-11-04'
+		}),
+		new models.Author({
+			name: 'Suzanne Collins',
+			description: 'American author of young adult literature, whose works include The Hunger Games trilogy and The Underland Chronicles series. The daughter of an Air Force officer, she lives in her native home of Connecticut.',
+			born: '1962-08-10'
 		})
 	];
 
@@ -66,13 +101,37 @@ const createUsersWithBooks = async () => {
 			genres: [genres[1].id]
 		}),
 		new models.Book({
-			title: 'holes',
+			title: 'Holes',
 			cover: 'https://covers.openlibrary.org/w/id/8231835-M.jpg',
 			about: 'Stanley Yelnats is under a curse. A curse that began with his no-good-dirty-rotten-pig-stealing great-great-grandfather and has since followed generations of Yelnatses. Now Stanley has been unjustly sent to a boys detention center, Camp Green Lake, where the boys build character by spending all day, every day, digging holes exactly five feet wide and five feet deep. There is no lake at Camp Green Lake. But there are an awful lot of holes. It doesnt take long for Stanley to realize that Camp Green Lake isnt what it seems. Are the boys digging holes because the warden is looking for something? But what could be buried under a dried-up lake? Its up to Stanley to dig up the truth.',
 			authors: [authors[2].id],
 			readers: [users[1].id, users[0].id],
 			genres: [genres[2].id]
-		})
+		}),
+		new models.Book({
+			title: 'Frankenstein',
+			cover: 'https://covers.openlibrary.org/w/id/8236225-M.jpg',
+			about: 'Mary Shelleys timeless gothic novel presents the epic battle between man and monster at its greatest literary pitch. In trying to create life, the young student Victor Frankenstein unleashes forces beyond his control, setting into motion a long and tragic chain of events that brings Victor to the very brink of madness. How he tries to destroy his creation, as it destroys everything Victor loves, is a powerful story of love, friendship, scientific hubris, and horror.',
+			authors: [authors[3].id],
+			readers: [users[2].id],
+			genres: [genres[3].id]
+		}),
+		new models.Book({
+			title: 'The Fifth Wave',
+			cover: 'https://covers.openlibrary.org/w/id/7436190-M.jpg',
+			about: 'Silencers: After the 3rd wave, the remaining human population tries desperately to survive off whatever resources remain by looting, all the while clinging to the hope that "the people in charge", wherever they may be, are working toward a solution. Eventually, this belief seems legitimate when an impressive battalion of soldiers (with functioning vehicles) arrives at the makeshift camp where Cassie, Sam, and her father are staying. The soldiers and commander, however, only appear interested in the children and promptly load them onto waiting buses before ordering all the adults into the camp barracks. Once the humans are surrounded, Commander Vosch orders a massacre and kills everyone at the camp. Cassie, however, narrowly escapes and witnesses her fathers death by Voschs hand. At this moment, the 4th wave becomes clear: not all "humans" are actually humans.',
+			authors: [authors[4].id],
+			readers: [users[2].id],
+			genres: [genres[4].id, genres[5].id]
+		}),
+		new models.Book({
+			title: 'The Hunger Games',
+			cover: 'https://covers.openlibrary.org/w/id/8368518-M.jpg',
+			about: 'COULD YOU SURVIVE ON YOUR OWN, IN THE WILD, WITH EVERYONE OUT TO MAKE SURE YOU DONT LIVE TO SEE THE MORNING? In the ruins of a place once known as North America lies the nation of Panem, a shining Capitol surrounded by twelve outlying districts. The Capitol is harsh and cruel and keeps the districts in line by forcing them all to send one boy and one girl between the ages of twelve and eighteen to participate in the annual Hunger Games, a fight to the death on live TV. Sixteen-year-old Katniss Everdeen, who lives alone with her mother and younger sister, regards it as a death sentence when she steps forward to take her sisters place in the Games. But Katniss has been close to dead before--and survival, for her, is second nature. Without really meaning to, she becomes a contender. But if she is to win, she will have to start making choices that weight survival against humanity and life against love.',
+			authors: [authors[5].id],
+			readers: [users[2].id],
+			genres: [genres[5].id, genres[6].id, genres[7].id]
+		}),
 	];
 
 	for (const user of users) {
