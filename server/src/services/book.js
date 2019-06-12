@@ -25,6 +25,14 @@ const getBooksByAuthor = async authorId => {
 	return books;
 };
 
+const getBooksByUser = async userId => {
+	const books = await models.Book.find({ readers: userId })
+		.populate('authors', ['name'])
+		.populate('genres', ['label'])
+		.select((['-__v', '-readers']));
+	return books;
+};
+
 const createBook = async data => {
 	const book = await models.Book.create(data);
 
@@ -46,6 +54,7 @@ export default {
 	getAllBooks,
 	getBookById,
 	getBooksByAuthor,
+	getBooksByUser,
 	createBook,
 	deleteBook
 };

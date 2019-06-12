@@ -33,6 +33,16 @@ router.get('/author/:authorId', async (req, res) => {
 	}
 });
 
+router.get('/user/:userId', async (req, res) => {
+	try {
+		const books = await services.book.getBooksByUser(req.params.userId);
+		return res.send(books);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).send('Server Error');
+	}
+});
+
 router.post('/', async (req, res) => {
 	//minimal creation requirements
 	try {

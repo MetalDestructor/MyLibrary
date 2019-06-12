@@ -1,9 +1,8 @@
 import models from '../models';
 
 const getUserById = async id => {
-	const user = await models.User.findById(id);
-	const newUser = { id: _id, username: user.username, email: user.email };
-	return newUser;
+	const user = await models.User.findById(id).select(['-password', '-__v']);
+	return user;
 };
 
 export default {
