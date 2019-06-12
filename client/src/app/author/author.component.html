@@ -1,15 +1,24 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title><h3>Name: {{author?.name}}</h3></mat-card-title>
+    <mat-card-title>
+      <h3>Name: {{author?.name}}</h3>
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <mat-list>
-      <mat-list-item>
-        <strong>Description:</strong> {{author?.description}}
-      </mat-list-item>
-      <mat-list-item>
-          <strong>Born:</strong> {{formatDate(author?.born)}}
-        </mat-list-item>
-    </mat-list>
+    <p>
+      <strong>Description:</strong> {{author?.description}}
+    </p>
+    <p>
+      <strong>Born:</strong> {{formatDate(author?.born)}}
+    </p>
   </mat-card-content>
 </mat-card>
+<strong>Books By {{author?.name}}:</strong>
+<div *ngFor="let book of booksByAuthor">
+  <mat-card [routerLink]="['/book', book._id]" style="cursor: pointer">
+    <mat-card-header>
+      <img mat-card-avatar src="{{book.cover}}">
+      <mat-card-title>{{book.title}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
