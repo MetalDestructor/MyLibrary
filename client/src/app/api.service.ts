@@ -42,7 +42,7 @@ export class ApiService {
     });
   }
 
-  getProfile(id: string) {
+  getAuthor(id: string) {
     return this.http.get(this.path + '/authors/' + id);
   }
 }

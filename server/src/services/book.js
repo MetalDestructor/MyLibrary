@@ -7,7 +7,6 @@ const getAllBooks = async () => {
 
 const getBookById = async bookId => {
 	const book = await models.Book.findById(bookId).populate('authors').populate('genres').populate('readers');
-	console.log(book);
 	return book;
 };
 

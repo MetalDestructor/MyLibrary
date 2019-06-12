@@ -23,8 +23,8 @@ import { RegisterComponent } from './register/register.component';
 import { LibraryNavComponent } from './library-nav/library-nav.component';
 import { LoginComponent } from './login/login.component';
 import { AuthorsComponent } from './authors/authors.component';
-import { ProfileComponent } from './profile/profile.component';
 import { AuthorComponent } from './author/author.component';
+import { AuthorNewComponent } from './author-new/author-new.component';
 import { TokenInterceptor } from './auth.interceptor';
 import { AuthService } from './auth.service';
 import { BooksComponent } from './books/books.component';
@@ -38,8 +38,8 @@ import { BookComponent } from './book/book.component';
     LibraryNavComponent,
     LoginComponent,
     AuthorsComponent,
-    ProfileComponent,
     AuthorComponent,
+    AuthorNewComponent,
     BooksComponent,
     BookComponent
   ],
