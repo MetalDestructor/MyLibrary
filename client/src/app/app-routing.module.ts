@@ -6,10 +6,12 @@ import { AuthorsComponent } from './authors/authors.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthorComponent } from './author/author.component';
 import { BooksComponent } from './books/books.component';
+import { BookComponent } from './book/book.component';
 
 const routes: Routes = [
   { path: '', component: BooksComponent},
   { path: 'books', component: BooksComponent},
+  { path: 'book/:id', component: BookComponent},
   { path: 'author', component: AuthorComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },

@@ -1,6 +1,6 @@
 <mat-grid-list cols="3" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let book of apiService.books">
-    <mat-card [routerLink]="['/book', book._id]">
+  <mat-grid-tile *ngFor="let book of apiService.books" [routerLink]="['/book', book._id]">
+    <mat-card>
       <mat-card-header>
         <mat-card-title>{{book.title}}</mat-card-title>
         <mat-card-subtitle *ngFor="let author of book.authors">{{author.name}}</mat-card-subtitle>

@@ -28,6 +28,7 @@ import { AuthorComponent } from './author/author.component';
 import { TokenInterceptor } from './auth.interceptor';
 import { AuthService } from './auth.service';
 import { BooksComponent } from './books/books.component';
+import { BookComponent } from './book/book.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { BooksComponent } from './books/books.component';
     AuthorsComponent,
     ProfileComponent,
     AuthorComponent,
-    BooksComponent
+    BooksComponent,
+    BookComponent
   ],
   imports: [
     BrowserModule,

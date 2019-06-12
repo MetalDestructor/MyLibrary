@@ -26,6 +26,10 @@ export class ApiService {
     });
   }
 
+  getBook(id: string) {
+    return this.http.get(this.path + '/books/' + id);
+  }
+
   getAuthors() {
     this.http.get(this.path + '/authors').subscribe(res => {
       this.authors = res;
