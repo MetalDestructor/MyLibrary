@@ -1,3 +1,4 @@
 <div *ngFor="let author of apiService.authors">
   <mat-card [routerLink] = "['/author', author._id]" style="cursor: pointer">{{author.name}}</mat-card>
 </div>
+  <button mat-raised-button color="primary" [routerLink] = "['/author/new']">Add New Author</button>
