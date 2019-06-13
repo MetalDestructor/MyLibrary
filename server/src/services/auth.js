@@ -13,7 +13,7 @@ const loginUser = async data => {
 };
 
 const generateToken = async user => {
-	const payload = { sub: user._id };
+	const payload = { id: user._id, username: user.username };
 
 	const token = jwt.encode(payload, process.env.SECRET);
 	return token;

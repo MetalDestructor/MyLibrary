@@ -8,16 +8,11 @@ import { ApiService } from '../api.service';
   styleUrls: ['./library-nav.component.less']
 })
 export class LibraryNavComponent implements OnInit {
-  currentUser: any;
-
-  constructor(
-    private authService: AuthService,
-    private apiService: ApiService
-  ) {}
+  userData: any;
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    const id = this.authService.getUserInfo()['sub'];
-    this.apiService.getUser(id).subscribe(data => (this.currentUser = data));
+    this.userData = this.authService.getUserInfo();
   }
 
   isAuthenticated(): boolean {
@@ -25,6 +20,6 @@ export class LibraryNavComponent implements OnInit {
   }
 
   getUsername(): string {
-    return this.currentUser.username;
+    return this.userData.username;
   }
 }

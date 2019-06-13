@@ -6,7 +6,7 @@
     <ng-template [ngIf]="isAuthenticated()">
         <button mat-button
                 color="accent"
-                [routerLink]="['/user', currentUser?._id]">
+                [routerLink]="['/user', userData.id]">
             <mat-icon>account_box</mat-icon> &nbsp; Hello, {{getUsername()}}
         </button>
 
