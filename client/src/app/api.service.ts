@@ -54,6 +54,10 @@ export class ApiService {
     return this.http.get(this.path + '/authors/' + id);
   }
 
+  deleteAuthor(id: string) {
+    return this.http.delete(this.path + '/authors/' + id);
+  }
+
   getUser(id: string) {
     return this.http.get(this.path + '/users/' + id);
   }

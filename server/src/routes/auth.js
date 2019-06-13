@@ -19,7 +19,6 @@ router.post('/login', async (req, res) => {
 			async (err, isMatch) => {
 				if (isMatch) {
           const token = await services.auth.generateToken(user);
-          console.log(token);
 					return res.json({status:"success", token});
 				} else {
 					return res

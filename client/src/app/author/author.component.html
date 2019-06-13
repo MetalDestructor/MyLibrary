@@ -12,6 +12,9 @@
       <strong>Born:</strong> {{apiService.formatDate(author?.born)}}
     </p>
   </mat-card-content>
+  <mat-card-actions *ngIf = "authService.isAuthenticated()">
+      <button (click)="delete()" mat-raised-button color="warn">DELETE</button>
+  </mat-card-actions>
 </mat-card>
 <strong>Books By {{author?.name}}:</strong>
 <div *ngFor="let book of booksByAuthor">
