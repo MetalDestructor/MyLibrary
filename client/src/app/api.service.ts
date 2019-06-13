@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { formatDate } from '@angular/common';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -33,6 +34,10 @@ export class ApiService {
     return this.http.get(this.path + '/books/author/' + id);
   }
 
+  getBookByUser(id: string) {
+    return this.http.get(this.path + '/books/user/' + id);
+  }
+
   getAuthors() {
     this.http.get(this.path + '/authors').subscribe(res => {
       this.authors = res;
@@ -51,5 +56,9 @@ export class ApiService {
 
   getUser(id: string) {
     return this.http.get(this.path + '/users/' + id);
+  }
+
+  formatDate(date: Date) {
+    return formatDate(date, 'dd/MM/yyyy', 'en');
   }
 }

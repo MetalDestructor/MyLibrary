@@ -10,3 +10,12 @@
     </p>
   </mat-card-content>
 </mat-card>
+<strong>Books Read By {{user?.username}}:</strong>
+<div *ngFor="let book of booksByUser">
+  <mat-card [routerLink]="['/book', book._id]" style="cursor: pointer">
+    <mat-card-header>
+      <img mat-card-avatar src="{{book.cover}}">
+      <mat-card-title>{{book.title}}</mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
