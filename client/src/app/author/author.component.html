@@ -1,27 +1,31 @@
 <mat-card>
   <mat-card-header>
     <mat-card-title>
-      <h3>Name: {{author?.name}}</h3>
+      <h4>Name: {{author?.name}}</h4>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>
-      <strong>Description:</strong> {{author?.description}}
-    </p>
-    <p>
-      <strong>Born:</strong> {{apiService.formatDate(author?.born)}}
-    </p>
+    <strong>Description:</strong>
+    <div>
+       {{author?.description}}
+    </div>
+    <strong>Born:</strong>
+    <div>
+       {{apiService.formatDate(author?.born)}}
+    </div>
+    <strong>Books By {{author?.name}}:</strong>
+    <div *ngFor="let book of booksByAuthor">
+      <mat-card [routerLink]="['/book', book._id]" style="cursor: pointer">
+        <mat-card-header>
+          <img mat-card-avatar src="{{book.cover}}">
+          <mat-card-title>{{book.title}}</mat-card-title>
+        </mat-card-header>
+      </mat-card>
+    </div>
   </mat-card-content>
-  <mat-card-actions *ngIf = "authService.isAuthenticated()">
-      <button (click)="delete()" mat-raised-button color="warn"><mat-icon>warning</mat-icon>&nbsp; DELETE</button>
+  <mat-card-actions *ngIf="authService.isAuthenticated()">
+    <button (click)="delete()" mat-raised-button color="warn">
+      <mat-icon>warning</mat-icon>&nbsp; DELETE
+    </button>
   </mat-card-actions>
 </mat-card>
-<strong>Books By {{author?.name}}:</strong>
-<div *ngFor="let book of booksByAuthor">
-  <mat-card [routerLink]="['/book', book._id]" style="cursor: pointer">
-    <mat-card-header>
-      <img mat-card-avatar src="{{book.cover}}">
-      <mat-card-title>{{book.title}}</mat-card-title>
-    </mat-card-header>
-  </mat-card>
-</div>

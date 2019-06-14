@@ -2,5 +2,5 @@
   <mat-card [routerLink]="['/author', author._id]" style="cursor: pointer">{{author.name}}</mat-card>
 </div>
 <span *ngIf="authService.isAuthenticated()">
-  <button mat-raised-button color="primary" [routerLink]="['/author/new']"><mat-icon>add</mat-icon>&nbsp;Add New Author</button>
+  <button mat-raised-button color="primary" [routerLink]="['/author/new']" class="centered"><mat-icon>add</mat-icon>&nbsp;Add New Author</button>
 </span>

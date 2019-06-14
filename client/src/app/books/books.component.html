@@ -1,14 +1,21 @@
-<mat-grid-list cols="3" rowHeight="1:1">
+<mat-grid-list cols="4" rowHeight="1:1">
   <mat-grid-tile *ngFor="let book of books" [routerLink]="['/book', book._id]">
-    <mat-card>
+    <mat-card class="book-card">
       <mat-card-header>
         <mat-card-title>{{book.title}}</mat-card-title>
-        <mat-card-subtitle *ngFor="let author of book.authors">{{author.name}}</mat-card-subtitle>
+        <mat-card-subtitle *ngFor="let author of book.authors">
+          <div>
+            <span>{{author.name}}</span>
+          </div>
+        </mat-card-subtitle>
+        <!-- <mat-card-subtitle *ngFor="let genre of book.genres">{{genre.label}}</mat-card-subtitle> -->
       </mat-card-header>
       <img mat-card-image src={{book.cover}}>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-<span *ngIf="authService.isAuthenticated()">
-    <button mat-raised-button color="primary" [routerLink]="['/books/new']"><mat-icon>add</mat-icon>&nbsp;Add New Book</button>
+<span *ngIf="authService.isAuthenticated()" class="">
+  <button mat-raised-button color="primary" [routerLink]="['/books/new']" class="centered">
+    <mat-icon>add</mat-icon>&nbsp;Add New Book
+  </button>
 </span>
