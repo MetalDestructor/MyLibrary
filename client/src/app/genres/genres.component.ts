@@ -7,10 +7,11 @@ import { ApiService } from '../api.service';
   styleUrls: ['./genres.component.less']
 })
 export class GenresComponent implements OnInit {
-
-  constructor(private apiService: ApiService) { }
+  genres: any = [];
+  constructor(private apiService: ApiService) {}
   ngOnInit() {
-    this.apiService.getGenres();
+    this.apiService.getGenres().subscribe(data => {
+      this.genres = data;
+    });
   }
-
 }

@@ -10,10 +10,11 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatIconModule,
-  MatGridListModule
+  MatGridListModule,
+  MatAutocompleteModule,
+  MatChipsModule
 } from '@angular/material';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApiService } from './api.service';
@@ -30,6 +31,7 @@ import { AuthService } from './auth.service';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './book/book.component';
 import { UserComponent } from './user/user.component';
+import { BookNewComponent } from './book-new/book-new.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,8 @@ import { UserComponent } from './user/user.component';
     AuthorNewComponent,
     BooksComponent,
     BookComponent,
-    UserComponent
+    UserComponent,
+    BookNewComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,10 @@ import { UserComponent } from './user/user.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule,
+    MatChipsModule
   ],
   providers: [
     ApiService,

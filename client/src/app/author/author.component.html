@@ -13,7 +13,7 @@
     </p>
   </mat-card-content>
   <mat-card-actions *ngIf = "authService.isAuthenticated()">
-      <button (click)="delete()" mat-raised-button color="warn">DELETE</button>
+      <button (click)="delete()" mat-raised-button color="warn"><mat-icon>warning</mat-icon>&nbsp; DELETE</button>
   </mat-card-actions>
 </mat-card>
 <strong>Books By {{author?.name}}:</strong>

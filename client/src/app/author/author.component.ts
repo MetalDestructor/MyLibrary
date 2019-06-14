@@ -10,7 +10,12 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./author.component.less']
 })
 export class AuthorComponent implements OnInit {
-  constructor(private apiService: ApiService, private route: ActivatedRoute, private authService:AuthService, private router:Router) {}
+  constructor(
+    private apiService: ApiService,
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   author: any;
   booksByAuthor: any = [];
@@ -18,13 +23,15 @@ export class AuthorComponent implements OnInit {
   ngOnInit() {
     const id = this.route.snapshot.params.id;
 
-    this.apiService.getAuthor(id).subscribe(data => (this.author = data));
+    this.apiService.getAuthor(id).subscribe(data => {
+      this.author = data;
+    });
     this.apiService.getBookByAuthor(id).subscribe(data => {
       this.booksByAuthor = data;
     });
   }
 
-  delete(){
+  delete() {
     console.log(this.author);
     this.apiService.deleteAuthor(this.author._id).subscribe(() => {
       this.router.navigate(['/authors']);

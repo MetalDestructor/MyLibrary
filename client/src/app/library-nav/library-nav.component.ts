@@ -15,10 +15,6 @@ export class LibraryNavComponent implements OnInit {
     this.userData = this.authService.getUserInfo();
   }
 
-  isAuthenticated(): boolean {
-    return this.authService.isAuthenticated();
-  }
-
   getUsername(): string {
     return this.userData.username;
   }

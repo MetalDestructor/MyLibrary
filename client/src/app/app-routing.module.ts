@@ -8,12 +8,14 @@ import { AuthorNewComponent } from './author-new/author-new.component';
 import { BooksComponent } from './books/books.component';
 import { BookComponent } from './book/book.component';
 import { UserComponent } from './user/user.component';
+import { BookNewComponent } from './book-new/book-new.component';
 
 const routes: Routes = [
   { path: '', component: BooksComponent},
   { path: 'books', component: BooksComponent},
   { path: 'book/:id', component: BookComponent},
   { path: 'author/new', component: AuthorNewComponent},
+  { path: 'books/new', component: BookNewComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'authors', component: AuthorsComponent },

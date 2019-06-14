@@ -10,7 +10,8 @@ const bookSchema = new mongoose.Schema({
 		required: true
 	},
 	cover: {
-		type: String
+		type: String,
+		required: true
 	},
 	authors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Author', required: true }],
 	genres: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Genre' , required: true}],

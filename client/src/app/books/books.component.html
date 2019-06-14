@@ -1,5 +1,5 @@
 <mat-grid-list cols="3" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let book of apiService.books" [routerLink]="['/book', book._id]">
+  <mat-grid-tile *ngFor="let book of books" [routerLink]="['/book', book._id]">
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{book.title}}</mat-card-title>
@@ -9,3 +9,6 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+<span *ngIf="authService.isAuthenticated()">
+    <button mat-raised-button color="primary" [routerLink]="['/books/new']"><mat-icon>add</mat-icon>&nbsp;Add New Book</button>
+</span>

@@ -5,9 +5,6 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ApiService {
-  public genres: any = [];
-  public authors: any = [];
-  public books: any = [];
   path: string;
 
   constructor(private http: HttpClient) {
@@ -15,15 +12,11 @@ export class ApiService {
   }
 
   getGenres() {
-    this.http.get(this.path + '/genres').subscribe(res => {
-      this.genres = res;
-    });
+    return this.http.get(this.path + '/genres');
   }
 
   getBooks() {
-    this.http.get(this.path + '/books').subscribe(res => {
-      this.books = res;
-    });
+    return this.http.get(this.path + '/books');
   }
 
   getBook(id: string) {
@@ -38,16 +31,16 @@ export class ApiService {
     return this.http.get(this.path + '/books/user/' + id);
   }
 
+  postBook(book:any) {
+    return this.http.post(this.path + '/books', book);
+  }
+
   getAuthors() {
-    this.http.get(this.path + '/authors').subscribe(res => {
-      this.authors = res;
-    });
+    return this.http.get(this.path + '/authors');
   }
 
   postAuthor(author:any) {
-    this.http.post(this.path + '/authors', author).subscribe(res => {
-      console.log(res);
-    });
+    return this.http.post(this.path + '/authors', author);
   }
 
   getAuthor(id: string) {

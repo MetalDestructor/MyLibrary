@@ -8,11 +8,10 @@ import { ApiService } from '../api.service';
   styleUrls: ['./user.component.less']
 })
 export class UserComponent implements OnInit {
-
-  constructor(private apiService: ApiService, private route: ActivatedRoute) { }
-
   user: any;
   booksByUser: any = [];
+
+  constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
@@ -23,5 +22,4 @@ export class UserComponent implements OnInit {
       console.log(this.booksByUser);
     });
   }
-
 }

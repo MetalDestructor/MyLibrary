@@ -8,18 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./author-new.component.less']
 })
 export class AuthorNewComponent implements OnInit {
+  authorData = {};
 
-  authorData = {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
-  constructor(private apiService: ApiService,
-    private router: Router) { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  submit() {
+    this.apiService.postAuthor(this.authorData).subscribe((data) => {
+      this.router.navigate(['/authors']);
+    });
   }
-
-  submit(){
-    this.apiService.postAuthor(this.authorData);
-    this.router.navigate(['/authors']);
-  }
-
 }

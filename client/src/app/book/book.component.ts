@@ -16,9 +16,7 @@ export class BookComponent implements OnInit {
     const id = this.route.snapshot.params.id;
 
     this.apiService.getBook(id).subscribe(data => {
-      console.log(data);
       this.book = data;
     });
-    console.log(this.book);
   }
 }

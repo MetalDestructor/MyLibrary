@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-authors',
@@ -7,11 +8,16 @@ import { ApiService } from '../api.service';
   styleUrls: ['./authors.component.less']
 })
 export class AuthorsComponent implements OnInit {
+  authors: any = [];
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit() {
-    this.apiService.getAuthors();
+    this.apiService.getAuthors().subscribe(data => {
+      this.authors = data;
+    });
   }
-
 }

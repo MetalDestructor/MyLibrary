@@ -3,7 +3,7 @@
     <button mat-button [routerLink]="['/books']"><mat-icon>library_books</mat-icon> &nbsp; Books</button>
     <button mat-button [routerLink]="['/authors']"><mat-icon>group</mat-icon> &nbsp; Authors</button>
     <span style="flex: 1 1 auto"></span>
-    <ng-template [ngIf]="isAuthenticated()">
+    <ng-template [ngIf]="authService.isAuthenticated()">
         <button mat-button
                 color="accent"
                 [routerLink]="['/user', userData.id]">
@@ -15,7 +15,7 @@
               <mat-icon>exit_to_app</mat-icon> &nbsp; Logout
         </button>
     </ng-template>
-    <ng-template [ngIf]="!isAuthenticated()">
+    <ng-template [ngIf]="!authService.isAuthenticated()">
         <button mat-button [routerLink]="['/login']"><mat-icon>perm_identity</mat-icon> &nbsp; Login</button>
         <button mat-button [routerLink]="['/register']"><mat-icon>call_made</mat-icon> &nbsp; Register</button>
     </ng-template>

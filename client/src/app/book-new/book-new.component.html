@@ -1,0 +1,67 @@
+<mat-card class="col-centered full-width">
+  <mat-card-header>
+    <mat-card-title>New Book</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="submit()" #f='ngForm' class="col-centered">
+      <div class="container">
+        <div class="row">
+          <mat-form-field class="input-width">
+            <input [(ngModel)]="bookData.title" name="title" matInput placeholder="Title">
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="input-width">
+            <input [(ngModel)]="bookData.cover" name="cover" matInput placeholder="Cover">
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field class="input-width">
+            <textarea matInput [(ngModel)]="bookData.about" name="about" placeholder="About"></textarea>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-chip-list #chipList aria-label="Author selection">
+              <mat-chip *ngFor="let author of authors" [selectable]="selectable" [removable]="removable"
+                (removed)="removeAuthor(author)">
+                <span *ngIf="author.name">{{author.name}}</span>
+                <span *ngIf="!author.name">{{author}}</span>
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Authors" #authorInput [formControl]="authorCtrl" [matAutocomplete]="autoAuthors"
+                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addAuthor($event)">
+            </mat-chip-list>
+            <mat-autocomplete #autoAuthors="matAutocomplete" (optionSelected)="selectedAuthor($event)">
+              <mat-option *ngFor="let author of filteredAuthors | async" [value]="author">
+                {{author.name}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-chip-list #chipList aria-label="Genre selection">
+              <mat-chip *ngFor="let genre of genres" [selectable]="selectable" [removable]="removable"
+                (removed)="removeGenre(genre)">
+                <span *ngIf="genre.label">{{genre.label}}</span>
+                <span *ngIf="!genre.label">{{genre}}</span>
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input placeholder="Genres" #genreInput [formControl]="genreCtrl" [matAutocomplete]="autoGenres"
+                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="addGenre($event)">
+            </mat-chip-list>
+            <mat-autocomplete #autoGenres="matAutocomplete" (optionSelected)="selectedGenre($event)">
+              <mat-option *ngFor="let genre of filteredGenres | async" [value]="genre">
+                {{genre.label}}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </div>
+      <button type="submit" mat-raised-button color="primary">Add Book</button>
+    </form>
+  </mat-card-content>
+</mat-card>

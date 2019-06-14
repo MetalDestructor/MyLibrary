@@ -1,12 +1,12 @@
 import models from '../models';
 
 const getAllGenres = async () => {
-	const genres = await models.Genre.find();
+	const genres = await models.Genre.find().select(['-__v']);
 	return genres;
 };
 
 const getGenreById = async id => {
-	const genre = await models.Genre.findById(id);
+	const genre = await models.Genre.findById(id).select(['-__v']);
 	return genre;
 };
 

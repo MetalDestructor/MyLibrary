@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -8,12 +9,14 @@ import { ApiService } from '../api.service';
   styleUrls: ['./books.component.less']
 })
 export class BooksComponent implements OnInit {
+  books: any = [];
 
-
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService:ApiService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.apiService.getBooks();
+    this.apiService.getBooks().subscribe(data => {
+      this.books = data;
+    });
   }
 
 }
