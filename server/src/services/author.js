@@ -1,12 +1,12 @@
 import models from '../models';
 
 const getAllAuthors = async () => {
-	const authors = await models.Author.find();
+	const authors = await models.Author.find().select(['-__v']);
 	return authors;
 };
 
 const getAuthorById = async id => {
-	const author = await models.Author.findById(id);
+	const author = await models.Author.findById(id).select(['-__v']);
 	return author;
 };
 
