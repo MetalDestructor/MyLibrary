@@ -35,6 +35,10 @@ export class ApiService {
     return this.http.post(this.path + '/books', book);
   }
 
+  deleteBook(id:string) {
+    return this.http.delete(this.path + '/books/' + id);
+  }
+
   getAuthors() {
     return this.http.get(this.path + '/authors');
   }

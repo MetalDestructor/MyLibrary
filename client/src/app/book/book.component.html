@@ -22,4 +22,9 @@
       {{book?.about}}
     </div>
   </mat-card-content>
+  <mat-card-actions *ngIf="authService.isAuthenticated()">
+    <button (click)="delete()" mat-raised-button color="warn">
+      <mat-icon>warning</mat-icon>&nbsp; DELETE
+    </button>
+  </mat-card-actions>
 </mat-card>

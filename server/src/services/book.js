@@ -13,7 +13,7 @@ const getBookById = async bookId => {
 		.populate('authors', ['_id','name'])
 		.populate('genres', ['label'])
 		.populate('readers', ['username'])
-		.select(['-__v', '-_id']);
+		.select(['-__v']);
 	return book;
 };
 

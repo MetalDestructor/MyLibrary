@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../api.service';
 import { AuthService } from '../auth.service';
 
@@ -33,8 +32,10 @@ export class AuthorComponent implements OnInit {
 
   delete() {
     console.log(this.author);
-    this.apiService.deleteAuthor(this.author._id).subscribe(() => {
-      this.router.navigate(['/authors']);
-    });
+    if (confirm(`Are you sure you want to delete ${this.author.name}?`)) {
+      this.apiService.deleteAuthor(this.author._id).subscribe(() => {
+        this.router.navigate(['/authors']);
+      });
+    }
   }
 }
