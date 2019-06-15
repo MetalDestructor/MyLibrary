@@ -49,33 +49,39 @@ const createUsersWithBooks = async () => {
 	const authors = [
 		new models.Author({
 			name: 'Tom Clancy',
+			image: 'http://www.gstatic.com/tv/thumb/persons/542633/542633_v9_ba.jpg',
 			description:
 				'Thomas Leo Clancy Jr. was an American novelist best known for his technically detailed espionage and military-science storylines set during and after the Cold War. Seventeen of his novels were bestsellers, and more than 100 million copies of his books are in print.[1] His name was also used on movie scripts written by ghostwriters, nonfiction books on military subjects, and video games. He was a part-owner of the Baltimore Orioles and vice-chairman of their community activities and public affairs committees.',
 			born: '1947-04-12'
 		}),
 		new models.Author({
 			name: 'Gary Paulsen',
+			image: 'https://www.btsb.com/btsbcontent/uploads/2013/03/gary-paulsen.jpg',
 			description:
 				'Gary James Paulsen is an American writer of young adult literature, best known for coming of age stories about the wilderness. He is the author of more than 200 books and has written more than 200 magazine articles and short stories, and several plays, all primarily for teenagers. He won the Margaret Edwards Award from the American Library Association in 1997 for his lifetime contribution in writing for teens.',
 			born: '1939-05-17'
 		}),
 		new models.Author({
 			name: 'Louis Sachar',
+			image: 'http://www.gstatic.com/tv/thumb/persons/295481/295481_v9_ba.jpg',
 			description: 'Louis Sachar is an American young-adult mystery-comedy author. He is best known for the Wayside School series and the award-winner, Holes. Holes won the 1998 U.S. National Book Award for Young Peoples Literature and the 1999 Newbery Medal for the years most distinguished contribution to American literature for children".[3] In 2013, it was ranked sixth among all childrens novels in a survey published by School Library Journal.',
 			born: '1954-03-20'
 		}),
 		new models.Author({
 			name: 'Mary Shelley',
+			image: 'https://www.onthisday.com/images/people/mary-shelley-medium.jpg',
 			description: 'Mary Shelley was a British novelist, short story writer, dramatist, essayist, biographer, and travel writer, best known for her Gothic novel Frankenstein: or, The Modern Prometheus (1818). She also edited and promoted the works of her husband, the Romantic poet and philosopher Percy Bysshe Shelley. Her father was the political philosopher William Godwin, and her mother was the philosopher and feminist Mary Wollstonecraft.',
 			born: '1797-08-30'
 		}),
 		new models.Author({
 			name: 'Rick Yancey',
+			image: 'https://pbs.twimg.com/profile_images/783838080381820928/t4wxAzVz_400x400.jpg',
 			description: 'Richard Yancey is an American author who writes works of suspense, fantasy, and science fiction aimed at young adults.',
 			born: '1962-11-04'
 		}),
 		new models.Author({
 			name: 'Suzanne Collins',
+			image: 'http://www.gstatic.com/tv/thumb/persons/644223/644223_v9_ba.jpg',
 			description: 'American author of young adult literature, whose works include The Hunger Games trilogy and The Underland Chronicles series. The daughter of an Air Force officer, she lives in her native home of Connecticut.',
 			born: '1962-08-10'
 		})
