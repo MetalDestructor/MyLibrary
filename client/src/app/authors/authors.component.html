@@ -1,6 +1,13 @@
-<div *ngFor="let author of authors">
-  <mat-card [routerLink]="['/author', author._id]" style="cursor: pointer">{{author.name}}</mat-card>
-</div>
+<mat-grid-list cols="4" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let author of authors" [routerLink]="['/author', author._id]" style="cursor: pointer">
+    <mat-card style="cursor: pointer">
+      <mat-card-header>
+        <mat-card-title>{{author.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src={{author.image}}>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
 <span *ngIf="authService.isAuthenticated()">
   <button mat-raised-button color="primary" [routerLink]="['/author/new']" class="centered"><mat-icon>add</mat-icon>&nbsp;Add New Author</button>
 </span>
